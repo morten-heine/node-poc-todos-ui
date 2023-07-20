@@ -1,0 +1,16 @@
+.todo-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.todo-row input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.comments-link {
+    margin-left: auto;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
