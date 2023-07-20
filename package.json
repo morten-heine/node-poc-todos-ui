@@ -8,6 +8,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "pg": "^8.11.1",
+    "puppeteer-core": "^20.9.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-router-dom": "^6.14.1",
@@ -22,7 +23,7 @@
     "ui-d": "ENV=d react-scripts start",
     "ui-test-a": "ENV=a node src/App.test.js",
     "ui-test-d": "ENV=d node src/App.test.js"
-     },
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
