@@ -2,6 +2,7 @@ import React from 'react';
 import TodoCreator from '../../components/TodoCreator/TodoCreator';
 import TodoRow from '../../components/TodoRow/TodoRow';
 import './MainPage.css';
+import { getApiBaseUrl } from '../../utils/config.js';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -10,13 +11,15 @@ class MainPage extends React.Component {
             todos: [],
             showCompleted: false
         };
+        this.baseUrl = getApiBaseUrl();
     }
 
     componentDidMount = async () => {
         try {
-            const response = await fetch('http://localhost:3500/todos');
+            const response = await fetch(`${this.baseUrl}/todos`);
             const todos = await response.json();
             this.setState({ todos:todos });
+
         } catch(error) {
             console.error("Failed to fetch todos:", error);
             this.setState({ todos: [] });
@@ -24,7 +27,7 @@ class MainPage extends React.Component {
     }
 
     addTodo = async (newText) => {
-        const response = await fetch('http://localhost:3500/todos', {
+        const response = await fetch(`${this.baseUrl}/todos/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text: newText, done:false })
@@ -36,7 +39,7 @@ class MainPage extends React.Component {
     }
 
     markTodoDone = async (id) => {
-        await fetch(`http://localhost:3500/todos/${id}/done`, { method: 'POST' });
+        await fetch(`${this.baseUrl}/todos/${id}/done`, { method: 'POST' });
         this.setState({
             todos: this.state.todos.map(todo => {
                 if (todo.id === id) {
@@ -51,7 +54,7 @@ class MainPage extends React.Component {
     }
 
     markTodoUndone = async (id) => {
-        await fetch(`http://localhost:3500/todos/${id}/undone`, { method: 'POST' });
+        await fetch(`${this.baseUrl}/todos/${id}/undone`, { method: 'POST' });
         this.setState({
             todos: this.state.todos.map(todo => {
                 if (todo.id === id) {

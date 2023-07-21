@@ -1,15 +1,21 @@
 const puppeteer = require('puppeteer');
 const axios = require('axios');
+require('dotenv').config();
+const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
 
 (async () => {
+
+    const apiBaseUrl = getApiBaseUrl();
+    const uiBaseUrl = getUiBaseUrl();
+
     this.httpClient = axios.create({
-        baseURL: 'http://localhost:3500'
+        baseURL: apiBaseUrl
     });
 
     // Open browser and go to page
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto('http://localhost:3000');
+    await page.goto(uiBaseUrl);
     console.log('Open browser and go to page');
 
     // Check header is there

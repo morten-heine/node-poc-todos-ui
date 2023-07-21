@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^1.4.0",
-    "bootstrap": "^4.1.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "pg": "^8.11.1",
@@ -15,13 +14,13 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
-    "start": "set PORT=8080 && react-scripts start",
+    "start": "REACT_APP_ENV=d react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "ui-a": "ENV=a react-scripts start",
-    "ui-d": "ENV=d react-scripts start",
-    "ui-test-a": "ENV=a node src/App.test.js",
-    "ui-test-d": "ENV=d node src/App.test.js"
+    "ui-a": "REACT_APP_ENV=a react-scripts start",
+    "ui-d": "REACT_APP_ENV=d react-scripts start",
+    "ui-test-a": "REACT_APP_ENV=a node src/App.test.js",
+    "ui-test-d": "REACT_APP_ENV=d node src/App.test.js"
   },
   "eslintConfig": {
     "extends": "react-app"

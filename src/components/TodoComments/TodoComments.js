@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './TodoComments.css';
 import '../../App.css';
+import { getApiBaseUrl } from '../../utils/config.js';
 
 const TodoComments = () => {
     const { id } = useParams();
@@ -10,8 +11,9 @@ const TodoComments = () => {
     const [newComment, setNewComment] = useState("");
 
     useEffect(() => {
+        const baseUrl = getApiBaseUrl();
         const fetchComments = async () => {
-            const response = await fetch(`http://localhost:3500/todos/${id}/comments`);
+            const response = await fetch(`${baseUrl}/todos/${id}/comments`);
             const comments = await response.json();
             setComments(comments);
         }
@@ -20,7 +22,8 @@ const TodoComments = () => {
     }, [id]);
 
     const addComment = async () => {
-        const response = await fetch(`http://localhost:3500/todos/${id}/comments`, {
+        const baseUrl = getApiBaseUrl();
+        const response = await fetch(`${baseUrl}/todos/${id}/comments`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ comment: newComment })
