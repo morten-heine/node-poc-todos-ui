@@ -33,13 +33,8 @@ const TodoComments = () => {
     }
 
     return (
-        <div>
+        <div className="header">
             <h1>Comments for Todo item #{id}</h1>
-            <ul>
-                {comments.map((comment, index) => (
-                    <li key={index}>{comment.comment}</li>
-                ))}
-            </ul>
             <input
                 type="text"
                 value={newComment}
@@ -47,6 +42,12 @@ const TodoComments = () => {
             />
             <button onClick={addComment} className="button">Add Comment</button>
             <Link to="/" className="button">Back to Main Page</Link>
+            <dl className="comment">
+                {comments.map((comment, index) => (
+                    <dt key={index}>{comment.id}:{comment.comment}</dt>
+                ))}
+            </dl>
+
         </div>
     );
 }
