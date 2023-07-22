@@ -87,5 +87,3 @@ const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
     response = await this.httpClient.delete(`/todos/${str2}`);
 
 })();
-
-// todo: mark done

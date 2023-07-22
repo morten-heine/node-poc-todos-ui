@@ -5,8 +5,6 @@ function getApiBaseUrl() {
     const apiport = env[`REACT_APP_API_PORT_${apienv}`]
     const apiprotocol = env[`REACT_APP_API_PROTOCOL_${apienv}`]
     const apiBaseUrl = `${apiprotocol}://${apihost}`+(apiport?`:${apiport}`:"");
-    console.log(apienv);
-    console.log(apiBaseUrl);
     return apiBaseUrl;
 }
 
