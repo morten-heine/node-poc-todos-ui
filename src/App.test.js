@@ -13,7 +13,8 @@ const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
     });
 
     // Open browser and go to page
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: 'new' });
+
     const page = await browser.newPage();
     await page.goto(uiBaseUrl);
     console.log('Opened browser and go to page');
