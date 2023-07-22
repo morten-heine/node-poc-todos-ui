@@ -16,14 +16,14 @@ const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(uiBaseUrl);
-    console.log('Open browser and go to page');
+    console.log('Opened browser and go to page');
 
     // Check header is there
     const content = await page.content();
     if(!content.includes('Todo List')) {
         console.error(`Error seeing header`);
     }
-    console.log('Check the Header is there');
+    console.log('Checked the Header is there');
 
     // Show completed todos
     await page.click('#displayCompletedCheckbox');
@@ -31,16 +31,16 @@ const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
     if(!content2.includes('Done')) {
         console.error(`Error seeing Done items`);
     }
-    console.log('Show completed todos');
+    console.log('Showed completed todos');
 
     // Type into the item input field
     const text = Math.random().toString()
     await page.type('#addText', text);
-    console.log('Type into the item input field');
+    console.log('Typed into the item input field');
 
     // Click the "Add" button
     await page.click('#addButton');
-    console.log('Click the Add button');
+    console.log('Clicked the Add button');
 
     // Workaround
     await page.reload();
@@ -63,7 +63,7 @@ const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
     // Click new item
     await page.click(`[id="${str2}"]`);
     const content4 = await page.content();
-    console.log('Click new item');
+    console.log('Clicked new item');
 
     // Workaround
     await page.reload();
@@ -77,13 +77,45 @@ const { getApiBaseUrl, getUiBaseUrl } = require('./utils/config.js');
     if(posb < posc) {
        console.error(`Error new items is not done`);
     }
-    console.log('Check new item is now done');
+    console.log('Checked new item is now done');
 
-    // Todo test todo comments
+    const commentButtons = await page.$$('.todo-row .button');
+    await commentButtons[commentButtons.length-1].click();
+    const content6 = await page.content();
+    console.log('Navigated to the comments page for first item');
+
+    // Wait for the input and button to load on comments page
+    await page.waitForSelector('input[type="text"]');
+    await page.waitForSelector('.button');
+
+    const newComment = 'New test comment';
+    await page.type('input[type="text"]', newComment);
+    console.log('Entered commment');
+
+    const addCommentButton = await page.$('.button');
+    await addCommentButton.click();
+    console.log('Clicked the Add Comment button');
+
+    await page.waitForFunction(
+        (newComment) => {
+            const comments = Array.from(document.querySelectorAll('.comment dt'));
+            return comments.some((comment) => comment.textContent.includes(newComment));
+        },
+        {},
+        newComment
+    );
+    console.log('Checked the comment is there');
+
+    // Click the "Back to Main Page" button
+    const backButtons = await page.$$('.button');
+    await backButtons[1].click(); // the second button is the back button
 
     console.error(`All tests passed`);
 
     await browser.close();
+    response = await this.httpClient.delete(`/todos/${str2}/comments`);
     response = await this.httpClient.delete(`/todos/${str2}`);
+
+    console.error(`Cleaned up data`);
 
 })();
