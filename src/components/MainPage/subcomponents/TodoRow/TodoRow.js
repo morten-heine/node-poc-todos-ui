@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './TodoRow.css';
-import '../../App.css';
+import '../../../../App.css';
 
 class TodoRow extends React.Component {
     render() {

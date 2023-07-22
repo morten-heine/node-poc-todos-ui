@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoCreator from '../../components/TodoCreator/TodoCreator';
-import TodoRow from '../../components/TodoRow/TodoRow';
+import TodoCreator from './subcomponents/TodoCreator/TodoCreator';
+import TodoRow from './subcomponents/TodoRow/TodoRow';
 import './MainPage.css';
 import { getApiBaseUrl } from '../../utils/config.js';
 
