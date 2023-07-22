@@ -5,14 +5,13 @@ import '../../../../App.css';
 
 const TodoRow = (props) => {
     const { todo, markTodoDone, markTodoUndone } = props;
-    const isDone = todo.done;
 
     return (
-        <div className={`todo-row ${isDone ? 'done' : ''}`}>
+        <div className={`todo-row ${todo.id ? 'done' : ''}`}>
             <input
                 type="checkbox"
-                checked={isDone}
-                onChange={isDone ? () => markTodoUndone(todo.id) : () => markTodoDone(todo.id)}
+                checked={todo.done}
+                onChange={todo.done ? () => markTodoUndone(todo.id) : () => markTodoDone(todo.id)}
                 id={todo.id}
             />
             {todo.name}
