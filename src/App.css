@@ -1,11 +1,10 @@
 .button {
     display: inline-block;
-    margin-top: 10px;
     color: #fff;
     background-color: #C0C0C0;
     border-color: #C0C0C0;
-    text-align: right;
-    vertical-align: bottom;
+    text-align: center;
+    vertical-align: center;
     user-select: none;
     border: 1px solid transparent;
     padding: .375rem .75rem;

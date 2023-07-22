@@ -21,7 +21,7 @@ class TodoCreator extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="input-button-wrapper">
                 <input type="text" onChange={this.handleInputChange} value={this.state.input} id="addText"/>
                 <button onClick={this.handleAddTodo} id="addButton" className="button">Add</button>
             </div>

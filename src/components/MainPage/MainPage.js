@@ -77,8 +77,8 @@ class MainPage extends React.Component {
         const doneTodos = Array.isArray(this.state.todos) ? this.state.todos.filter(todo => todo.done) : [];
 
         return (
-            <div className="app">
-                <h1 className="header">Todo List: {undoneTodos.length} items left</h1>
+            <div className="header">
+                <h1>Todo List: {undoneTodos.length} items left</h1>
                 <TodoCreator onAddTodo={this.addTodo} />
                 <div className="display-completed">
                     <label>

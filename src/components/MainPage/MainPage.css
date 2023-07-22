@@ -1,32 +1,13 @@
-.app {
+.header {
+    text-align: left;
     background-color: #f5f5f5;
     padding: 20px;
     max-width: 500px;
     margin: auto;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.contents {
-    text-align: left;
-    margin-bottom: 20px;
-}
-.todo-list {
-    margin-top: 20px;
-}
-
 .display-completed {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.done-todo {
-    text-decoration: line-through;
-    color: gray;
-}
 
-.undone-todo {
-    color: black;
-}
