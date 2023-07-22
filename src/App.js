@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainPage from './components/TodosPage/MainPage';
+import Todos from './components/TodosPage/Todos';
 import TodoComments from './components/TodoCommentsPage/TodoComments';
 
 function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<Todos />} />
                 <Route path="/todos/:id/comments" element={<TodoComments />} />
             </Routes>
         </Router>

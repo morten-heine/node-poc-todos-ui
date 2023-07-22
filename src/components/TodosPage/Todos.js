@@ -1,10 +1,10 @@
 import React from 'react';
 import TodoCreator from './subcomponents/TodoCreator/TodoCreator';
 import TodoRow from './subcomponents/TodoRow/TodoRow';
-import './MainPage.css';
+import './Todos.css';
 import { getApiBaseUrl } from '../../utils/config.js';
 
-class MainPage extends React.Component {
+class Todos extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -114,4 +114,4 @@ class MainPage extends React.Component {
     }
 }
 
-export default MainPage;
+export default Todos;
