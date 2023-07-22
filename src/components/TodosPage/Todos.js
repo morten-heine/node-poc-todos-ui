@@ -24,6 +24,9 @@ const Todos = () => {
         fetchTodos();
     }, []);
 
+    const undoneTodos = todos.filter(todo => !todo.done);
+    const doneTodos = todos.filter(todo => todo.done);
+
     const addTodo = async (newText) => {
         const response = await fetch(`${baseUrl}/todos/`, {
             method: 'POST',
@@ -55,9 +58,6 @@ const Todos = () => {
     const toggleShowCompleted = () => {
         setShowCompleted(!showCompleted);
     }
-
-    const undoneTodos = todos.filter(todo => !todo.done);
-    const doneTodos = todos.filter(todo => todo.done);
 
     return (
         <div className="header">
