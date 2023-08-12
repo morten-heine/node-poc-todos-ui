@@ -13,6 +13,7 @@ const TodoRow = (props) => {
                 checked={todo.done}
                 onChange={todo.done ? () => markTodoUndone(todo.id) : () => markTodoDone(todo.id)}
                 id={todo.id}
+                aria-label="Mark todo done"
             />
             {todo.name}
             <Link to={`/todos/${todo.id}/comments`} className="button">Comments</Link>
