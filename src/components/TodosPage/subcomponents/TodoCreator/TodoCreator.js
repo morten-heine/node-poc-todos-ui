@@ -15,8 +15,8 @@ const TodoCreator = (props) => {
 
     return (
         <div className="input-button-wrapper">
-            <input type="text" onChange={handleInputChange} value={input} id="addText"/>
-            <button onClick={handleAddTodo} id="addButton" className="button">Add</button>
+            <input type="text" onChange={handleInputChange} value={input} id="addText" aria-label="Add Todo"/>
+            <button onClick={handleAddTodo} id="addButton" className="button">Add Todo</button>
         </div>
     );
 }

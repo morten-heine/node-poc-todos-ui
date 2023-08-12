@@ -39,6 +39,7 @@ const TodoComments = () => {
                 type="text"
                 value={newComment}
                 onChange={e => setNewComment(e.target.value)}
+                aria-label="Add Comment"
             />
             <button onClick={addComment} className="button">Add Comment</button>
             <Link to="/" className="button">Back to Main Page</Link>
