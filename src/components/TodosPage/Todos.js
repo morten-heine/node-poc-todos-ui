@@ -22,7 +22,7 @@ const Todos = () => {
             }
         }
         fetchTodos();
-    }, []);
+    }, [baseUrl]);
 
     const undoneTodos = todos.filter(todo => !todo.done);
     const doneTodos = todos.filter(todo => todo.done);
